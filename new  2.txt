@@ -1,0 +1,76 @@
+@Override
+	public Student getstudentById(long studid) {
+		// TODO Auto-generated method stub
+		/*
+		 * Student s=null; for(Student student:list) { if(student.getStudid()==studid) {
+		 * s=student; break; } } 
+		 */
+		return studentDao.getOne(studid);
+	}
+	@Override
+	public Student addStudent(Student student) {
+		//list.add(student);
+		studentDao.save(student);
+		return student;
+	}
+	
+	
+	
+	****************************************************************************************************************************************************************
+	ALL METHODS Declaration
+	
+	public Student getstudent(long studid);
+	
+	public Student getstudentById(long parseLong);
+
+	public Student addStudent(Student student);
+
+	public Student updateStudent(Student student);
+
+	public void deleteStudent(long parseLong);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * @Override public Student getstudent(long studid) { // TODO Auto-generated
+	 * method stub return studentDao.getOne(studid); }
+	 */
+	
+	
+	@Override
+	public Student updateStudent(Student student) {
+		/*
+		 * list.forEach(e -> { if (e.getStudid() == student.getStudid()) {
+		 * e.setStudname(student.getStudname()); e.setStudadd(student.getStudadd()); }
+		 * }); 
+		 */
+		studentDao.save(student);
+		return student;
+	}
+	@SuppressWarnings("deprecation")
+	@Override
+	public void deleteStudent(long parseLong) {
+		//list=this.list.stream().filter(e->e.getStudid()!=parseLong).collect(Collectors.toList());
+	Student entity=studentDao.getOne(parseLong);	
+	studentDao.delete(entity);
+	}
+	@Override
+	public Student getstudentById(long parseLong) {
+		return studentDao.getOne(parseLong);
+	}
+	@Override
+	public Student addStudent(Student student) {
+		studentDao.save(student);
+		return student;
+	}
+	@Override
+	public Student getstudent(long studid) {
+		// TODO Auto-generated method stub
+		return studentDao.getOne(studid);
+	}
